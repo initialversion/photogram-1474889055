@@ -24,7 +24,7 @@
           Commenter
         </label>
 
-        <input type="text" id="commenter_id" name="commenter_id" placeholder="Commenter" class="form-control" value="<%= @comment.commenter_id %>">
+        <%= select_tag(:commenter_id, options_from_collection_for_select(User.all, :id, :username, @comment.commenter_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for photo_id -->
@@ -33,7 +33,7 @@
           Photo
         </label>
 
-        <input type="text" id="photo_id" name="photo_id" placeholder="Photo" class="form-control" value="<%= @comment.photo_id %>">
+        <%= select_tag(:photo_id, options_from_collection_for_select(Photo.all, :id, :created_at, @comment.photo_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for body -->
